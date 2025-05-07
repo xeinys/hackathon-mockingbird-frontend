@@ -9,7 +9,7 @@ function SignUp() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
-  const API_URL = 'http://34.51.142.146';
+  const API_URL = 'http://34.51.181.254';
 
   // Redirect to /home if logged in
   const router = useRouter();
