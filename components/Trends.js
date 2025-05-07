@@ -9,7 +9,7 @@ function Trends() {
 
   const [trendsData, setTrendsData] = useState([]);
 
-  const API_URL = 'http://34.51.142.146';
+  const API_URL = 'https://34.51.142.146';
 
   useEffect(() => {
     fetch(`${API_URL}/tweets/trends/${user.token}`)

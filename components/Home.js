@@ -13,7 +13,7 @@ function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
-  const API_URL = 'http://34.51.142.146';
+  const API_URL = 'https://34.51.142.146';
 
   // Redirect to /login if not logged in
   const router = useRouter();
