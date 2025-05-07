@@ -13,6 +13,8 @@ function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
+  const API_URL = 'http://34.51.142.146';
+
   // Redirect to /login if not logged in
   const router = useRouter();
 
@@ -27,7 +29,7 @@ function Home() {
       return;
     }
 
-    fetch(`http://localhost:3000/tweets/all/${user.token}`)
+    fetch(`${API_URL}/tweets/all/${user.token}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
@@ -41,7 +43,7 @@ function Home() {
   };
 
   const handleSubmit = () => {
-    fetch('http://localhost:3000/tweets', {
+    fetch(`${API_URL}/tweets`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, content: newTweet }),

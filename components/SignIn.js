@@ -9,6 +9,8 @@ function SignIn() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
+  const API_URL = 'http://34.51.142.146';
+
   // Redirect to /home if logged in
   const router = useRouter();
   if (user.token) {
@@ -19,7 +21,7 @@ function SignIn() {
   const [password, setPassword] = useState('');
 
   const handleSubmit = () => {
-    fetch('http://localhost:3000/users/signin', {
+    fetch(`${API_URL}/users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),

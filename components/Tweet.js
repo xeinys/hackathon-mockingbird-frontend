@@ -11,8 +11,10 @@ function Tweet(props) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
+  const API_URL = 'http://34.51.142.146';
+
   const handleLike = () => {
-    fetch('http://localhost:3000/tweets/like', {
+    fetch(`${API_URL}/tweets/like`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, tweetId: props._id }),
@@ -23,7 +25,7 @@ function Tweet(props) {
   };
 
   const handleDelete = () => {
-    fetch('http://localhost:3000/tweets', {
+    fetch(`${API_URL}/tweets`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, tweetId: props._id }),

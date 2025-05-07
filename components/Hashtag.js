@@ -14,6 +14,8 @@ function Hashtag() {
   const user = useSelector((state) => state.user.value);
   const tweetsData = useSelector((state) => state.tweets.value);
 
+  const API_URL = 'http://34.51.142.146';
+
   // Redirect to /login if not logged in
   const router = useRouter();
   const { hashtag } = router.query;
@@ -30,7 +32,7 @@ function Hashtag() {
 
     setQuery('#' + hashtag);
 
-    fetch(`http://localhost:3000/tweets/hashtag/${user.token}/${hashtag}`)
+    fetch(`${API_URL}/tweets/hashtag/${user.token}/${hashtag}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
